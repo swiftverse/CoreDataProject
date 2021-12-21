@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct CoreDataProjectApp: App {
+    @StateObject var dataController = DataController()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CoreDataProject()
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }
